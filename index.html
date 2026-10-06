@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juan José Damián Aguilar | Ingeniería Informática</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 119, 255, 0.12), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(0, 200, 255, 0.08), transparent 30%),
+                #070b14;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 7%;
+            background: rgba(7, 11, 20, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: #4da6ff;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #cbd5e1;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4da6ff;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 9% 60px;
+            gap: 60px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero-text small {
+            color: #4da6ff;
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(42px, 6vw, 75px);
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .hero-text h1 span {
+            color: #4da6ff;
+        }
+
+        .hero-text h2 {
+            font-size: 24px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 24px;
+            border-radius: 10px;
+            border: 1px solid #2563eb;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37,99,235,0.35);
+        }
+
+        .btn.secondary {
+            background: transparent;
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        /* ================= FOTO ================= */
+
+        .photo-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 330px;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 310px;
+            height: 310px;
+        }
+
+        .photo-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #00c6ff, #2563eb);
+            animation: rotate 6s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .photo-container {
+            position: absolute;
+            inset: 5px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #0d1424;
+            border: 5px solid #0d1424;
+            z-index: 2;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #64748b;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .photo-placeholder .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        /* BOTÓN DE FOTO */
+
+        .photo-edit {
+            position: absolute;
+            right: 5px;
+            bottom: 15px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #0d1424;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 21px;
+            z-index: 10;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        .photo-edit:hover {
+            transform: scale(1.1);
+            background: #00a8ff;
+        }
+
+        /* CONTROLES DE FOTO */
+
+        .photo-controls {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -125px;
+            width: 270px;
+            padding: 15px;
+            background: rgba(12,18,31,0.97);
+            border: 1px solid rgba(77,166,255,0.3);
+            border-radius: 15px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 20;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        .photo-controls.active {
+            display: flex;
+        }
+
+        .photo-controls button {
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            color: white;
+            background: #2563eb;
+            font-weight: bold;
+        }
+
+        .photo-controls button:hover {
+            opacity: 0.85;
+        }
+
+        .photo-controls .remove-photo {
+            background: #dc2626;
+        }
+
+        .photo-controls .close-photo {
+            background: #334155;
+        }
+
+        /* ================= SECCIONES ================= */
+
+        section {
+            padding: 100px 9%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title small {
+            color: #4da6ff;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        /* ================= SOBRE MÍ ================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 35px;
+            backdrop-filter: blur(15px);
+        }
+
+        .glass h3 {
+            margin-bottom: 18px;
+            color: #4da6ff;
+        }
+
+        .glass p {
+            color: #a8b3c4;
+            line-height: 1.8;
+        }
+
+        /* ================= HABILIDADES ================= */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 18px;
+        }
+
+        .skill {
+            padding: 25px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-7px);
+            border-color: #2563eb;
+        }
+
+        .skill span {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            color: #cbd5e1;
+        }
+
+        /* ================= PROYECTOS ================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            padding: 28px;
+            background: rgba(255,255,255,0.035);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #2563eb;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .project-icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 6px 10px;
+            background: rgba(37,99,235,0.15);
+            border: 1px solid rgba(37,99,235,0.3);
+            border-radius: 8px;
+            color: #60a5fa;
+            font-size: 12px;
+        }
+
+        /* ================= CONTACTO ================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            padding: 25px;
+            border-radius: 17px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            color: #60a5fa;
+            word-break: break-word;
+        }
+
+        .contact-info a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            color: #64748b;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-area {
+                min-width: 0;
+            }
+
+            .photo-wrapper {
+                width: 270px;
+                height: 270px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            JJ<span>.DEV</span>
+        </div>
+
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= INICIO ================= -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-text">
+
+            <small>ESTUDIANTE DE INGENIERÍA INFORMÁTICA</small>
+
+            <h1>
+                Juan José<br>
+                <span>Damián Aguilar</span>
+            </h1>
+
+            <h2>
+                Desarrollo • Tecnología • Innovación
+            </h2>
+
+            <p>
+                Soy estudiante de Ingeniería Informática interesado en el
+                desarrollo de soluciones tecnológicas, programación, bases de
+                datos, redes y automatización. Me gusta aprender nuevas
+                tecnologías y convertir ideas en proyectos funcionales.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#proyectos" class="btn">
+                    Ver proyectos
+                </a>
+
+                <a href="#contacto" class="btn secondary">
+                    Contactarme
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FOTO ================= -->
+
+        <div class="photo-area">
+
+            <div class="photo-wrapper">
+
+                <div class="photo-ring"></div>
+
+                <div class="photo-container">
+
+                    <div
+                        class="photo-placeholder"
+                        id="photoPlaceholder"
+                    >
+                        <div class="icon">👤</div>
+                        <span>Mi foto</span>
+                    </div>
+
+                    <img
+                        id="profilePhoto"
+                        style="display:none;"
+                        alt="Foto de Juan José Damián Aguilar"
+                    >
+
+                </div>
+
+
+                <!-- BOTÓN PARA EDITAR FOTO -->
+
+                <button
+                    class="photo-edit"
+                    id="photoEditButton"
+                    title="Editar foto"
+                    onclick="openPhotoEditor()"
+                >
+                    ⚙
+                </button>
+
+
+                <!-- OPCIONES DE FOTO -->
+
+                <div
+                    class="photo-controls"
+                    id="photoControls"
+                >
+
+                    <button onclick="selectPhoto()">
+                        📷 Cambiar / agregar foto
+                    </button>
+
+                    <button
+                        class="remove-photo"
+                        onclick="removePhoto()"
+                    >
+                        🗑️ Quitar foto
+                    </button>
+
+                    <button
+                        class="close-photo"
+                        onclick="closePhotoEditor()"
+                    >
+                        Cerrar
+                    </button>
+
+                    <input
+                        type="file"
+                        id="photoInput"
+                        accept="image/*"
+                        style="display:none;"
+                        onchange="changePhoto(event)"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SOBRE MÍ ================= -->
+
+    <section id="sobre-mi">
+
+        <div class="section-title">
+
+            <small>SOBRE MÍ</small>
+
+            <h2>Conociendo mi perfil</h2>
+
+        </div>
+
+
+        <div class="about">
+
+            <div class="glass">
+
+                <h3>¿Quién soy?</h3>
+
+                <p>
+                    Soy Juan José Damián Aguilar, estudiante de Ingeniería
+                    Informática. Mi formación está enfocada en el desarrollo
+                    de software, bases de datos, redes y tecnologías
+                    relacionadas con la informática.
+                </p>
+
+            </div>
+
+
+            <div class="glass">
+
+                <h3>¿Qué me interesa?</h3>
+
+                <p>
+                    Me interesa el desarrollo web, las bases de datos,
+                    aplicaciones, redes, automatización y la creación de
+                    proyectos que combinen hardware y software.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HABILIDADES ================= -->
+
+    <section id="habilidades">
+
+        <div class="section-title">
+
+            <small>TECNOLOGÍAS</small>
+
+            <h2>Mis habilidades</h2>
+
+        </div>
+
+
+        <div class="skills">
+
+            <div class="skill">
+                <span>🐍</span>
+                <p>Python</p>
+            </div>
+
+            <div class="skill">
+                <span>🟨</span>
+                <p>JavaScript</p>
+            </div>
+
+            <div class="skill">
+                <span>☕</span>
+                <p>Java</p>
+            </div>
+
+            <div class="skill">
+                <span>⚙️</span>
+                <p>C++</p>
+            </div>
+
+            <div class="skill">
+                <span>🗄️</span>
+                <p>SQL</p>
+            </div>
+
+            <div class="skill">
+                <span>🐳</span>
+                <p>Docker</p>
+            </div>
+
+            <div class="skill">
+                <span>🐧</span>
+                <p>Linux</p>
+            </div>
+
+            <div class="skill">
+                <span>🤖</span>
+                <p>Arduino</p>
+            </div>
+
+            <div class="skill">
+                <span>🌐</span>
+                <p>HTML / CSS</p>
+            </div>
+
+            <div class="skill">
+                <span>🔧</span>
+                <p>Git</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROYECTOS ================= -->
+
+    <section id="proyectos">
+
+        <div class="section-title">
+
+            <small>TRABAJOS</small>
+
+            <h2>Mis proyectos</h2>
+
+        </div>
+
+
+        <div class="projects">
+
+            <div class="project">
+
+                <div class="project-icon">💧</div>
+
+                <h3>Sistema hidropónico automatizado</h3>
+
+                <p>
+                    Proyecto basado en PICs para automatizar y controlar
+                    diferentes procesos de un sistema hidropónico mediante
+                    sensores y componentes electrónicos.
+                </p>
+
+                <span class="tag">
+                    PIC • Automatización
+                </span>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">🗄️</div>
+
+                <h3>Sistemas de bases de datos</h3>
+
+                <p>
+                    Desarrollo de proyectos académicos relacionados con
+                    modelos entidad-relación, bases de datos SQL y
+                    administración de información.
+                </p>
+
+                <span class="tag">
+                    SQL • Bases de datos
+                </span>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">💻</div>
+
+                <h3>Aplicaciones y sistemas</h3>
+
+                <p>
+                    Creación de aplicaciones utilizando diferentes lenguajes
+                    de programación para resolver problemas y automatizar
+                    procesos.
+                </p>
+
+                <span class="tag">
+                    Java • Python • C++
+                </span>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">🌐</div>
+
+                <h3>Desarrollo web</h3>
+
+                <p>
+                    Diseño y desarrollo de páginas web utilizando HTML, CSS y
+                    JavaScript, buscando interfaces modernas y funcionales.
+                </p>
+
+                <span class="tag">
+                    HTML • CSS • JavaScript
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACTO ================= -->
+
+    <section id="contacto">
+
+        <div class="section-title">
+
+            <small>CONTACTO</small>
+
+            <h2>Hablemos</h2>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <!-- CORREO -->
+
+            <div
+                class="contact-card"
+                onclick="showContact('email')"
+            >
+
+                <h3>📧 Correo</h3>
+
+                <div
+                    class="contact-info"
+                    id="emailInfo"
+                >
+                    Haz clic para mostrar
+                </div>
+
+            </div>
+
+
+            <!-- GITHUB -->
+
+            <div
+                class="contact-card"
+                onclick="showContact('github')"
+            >
+
+                <h3>💻 GitHub</h3>
+
+                <div
+                    class="contact-info"
+                    id="githubInfo"
+                >
+                    Haz clic para mostrar
+                </div>
+
+            </div>
+
+
+            <!-- UBICACIÓN -->
+
+            <div class="contact-card">
+
+                <h3>📍 Ubicación</h3>
+
+                <div class="contact-info">
+                    Chiapas, México
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 Juan José Damián Aguilar · Ingeniería Informática
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* =================================================
+           CONTRASEÑA PARA EDITAR LA FOTO
+           ================================================= */
+
+        const PHOTO_PASSWORD = "JO$3010606";
+
+
+        /* =================================================
+           CARGAR FOTO GUARDADA
+           ================================================= */
+
+        window.addEventListener("DOMContentLoaded", function () {
+
+            const savedPhoto =
+                localStorage.getItem("juanJoseProfilePhoto");
+
+            if (savedPhoto) {
+
+                displayPhoto(savedPhoto);
+
+            }
+
+        });
+
+
+        /* =================================================
+           ABRIR EDITOR DE FOTO
+           ================================================= */
+
+        function openPhotoEditor() {
+
+            const password = prompt(
+                "🔐 Introduce la contraseña para editar la foto:"
+            );
+
+
+            if (password === null) {
+                return;
+            }
+
+
+            if (password !== PHOTO_PASSWORD) {
+
+                alert("❌ Contraseña incorrecta.");
+
+                return;
+            }
+
+
+            document
+                .getElementById("photoControls")
+                .classList.add("active");
+
+        }
+
+
+        /* =================================================
+           CERRAR EDITOR
+           ================================================= */
+
+        function closePhotoEditor() {
+
+            document
+                .getElementById("photoControls")
+                .classList.remove("active");
+
+        }
+
+
+        /* =================================================
+           SELECCIONAR FOTO
+           ================================================= */
+
+        function selectPhoto() {
+
+            document
+                .getElementById("photoInput")
+                .click();
+
+        }
+
+
+        /* =================================================
+           CAMBIAR / AGREGAR FOTO
+           ================================================= */
+
+        function changePhoto(event) {
+
+            const file = event.target.files[0];
+
+
+            if (!file) {
+                return;
+            }
+
+
+            if (!file.type.startsWith("image/")) {
+
+                alert("❌ Selecciona una imagen válida.");
+
+                return;
+            }
+
+
+            const reader = new FileReader();
+
+
+            reader.onload = function (e) {
+
+                const imageData = e.target.result;
+
+
+                localStorage.setItem(
+                    "juanJoseProfilePhoto",
+                    imageData
+                );
+
+
+                displayPhoto(imageData);
+
+
+                alert(
+                    "✅ Foto actualizada correctamente."
+                );
+
+            };
+
+
+            reader.readAsDataURL(file);
+
+        }
+
+
+        /* =================================================
+           MOSTRAR FOTO
+           ================================================= */
+
+        function displayPhoto(imageData) {
+
+            const image =
+                document.getElementById("profilePhoto");
+
+            const placeholder =
+                document.getElementById("photoPlaceholder");
+
+
+            image.src = imageData;
+
+            image.style.display = "block";
+
+            placeholder.style.display = "none";
+
+        }
+
+
+        /* =================================================
+           QUITAR FOTO
+           ================================================= */
+
+        function removePhoto() {
+
+            const confirmation = confirm(
+                "¿Seguro que quieres quitar tu foto?"
+            );
+
+
+            if (!confirmation) {
+                return;
+            }
+
+
+            localStorage.removeItem(
+                "juanJoseProfilePhoto"
+            );
+
+
+            const image =
+                document.getElementById("profilePhoto");
+
+            const placeholder =
+                document.getElementById("photoPlaceholder");
+
+
+            image.src = "";
+
+            image.style.display = "none";
+
+            placeholder.style.display = "flex";
+
+
+            document.getElementById("photoInput").value = "";
+
+
+            alert("🗑️ Foto eliminada.");
+
+        }
+
+
+        /* =================================================
+           MOSTRAR CONTACTO
+           ================================================= */
+
+        function showContact(type) {
+
+            /* ---------- CORREO ---------- */
+
+            if (type === "email") {
+
+                const element =
+                    document.getElementById("emailInfo");
+
+
+                element.innerHTML =
+                    '<a href="mailto:informatica_24887003@cintalapa.tecnm.mx">' +
+                    'informatica_24887003@cintalapa.tecnm.mx' +
+                    '</a>';
+
+            }
+
+
+            /* ---------- GITHUB ---------- */
+
+            if (type === "github") {
+
+                const element =
+                    document.getElementById("githubInfo");
+
+
+                element.innerHTML =
+                    '<a href="https://github.com/Juan2006-01" target="_blank" rel="noopener noreferrer">' +
+                    'github.com/Juan2006-01' +
+                    '</a>';
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
