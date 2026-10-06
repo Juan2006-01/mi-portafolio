@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +43,7 @@
             padding: 0 7%;
             background: rgba(7, 11, 20, 0.75);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             z-index: 1000;
         }
 
@@ -133,12 +134,12 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(37,99,235,0.35);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
         }
 
         .btn.secondary {
             background: transparent;
-            border-color: rgba(255,255,255,0.15);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         /* ================= FOTO ================= */
@@ -225,7 +226,7 @@
             cursor: pointer;
             font-size: 21px;
             z-index: 10;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             transition: 0.3s;
         }
 
@@ -243,14 +244,14 @@
             bottom: -125px;
             width: 270px;
             padding: 15px;
-            background: rgba(12,18,31,0.97);
-            border: 1px solid rgba(77,166,255,0.3);
+            background: rgba(12, 18, 31, 0.97);
+            border: 1px solid rgba(77, 166, 255, 0.3);
             border-radius: 15px;
             display: none;
             flex-direction: column;
             gap: 10px;
             z-index: 20;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         }
 
         .photo-controls.active {
@@ -309,8 +310,8 @@
         }
 
         .glass {
-            background: rgba(255,255,255,0.035);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 35px;
             backdrop-filter: blur(15px);
@@ -337,8 +338,8 @@
         .skill {
             padding: 25px;
             border-radius: 16px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
             transition: 0.3s;
         }
@@ -368,8 +369,8 @@
 
         .project {
             padding: 28px;
-            background: rgba(255,255,255,0.035);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 18px;
             transition: 0.3s;
         }
@@ -377,7 +378,7 @@
         .project:hover {
             transform: translateY(-8px);
             border-color: #2563eb;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
         }
 
         .project-icon {
@@ -398,8 +399,8 @@
             display: inline-block;
             margin-top: 20px;
             padding: 6px 10px;
-            background: rgba(37,99,235,0.15);
-            border: 1px solid rgba(37,99,235,0.3);
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
             border-radius: 8px;
             color: #60a5fa;
             font-size: 12px;
@@ -416,8 +417,8 @@
         .contact-card {
             padding: 25px;
             border-radius: 17px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             cursor: pointer;
             transition: 0.3s;
         }
@@ -452,7 +453,7 @@
             text-align: center;
             padding: 35px;
             color: #64748b;
-            border-top: 1px solid rgba(255,255,255,0.07);
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
         }
 
         /* ================= RESPONSIVE ================= */
@@ -571,79 +572,40 @@
 
         <!-- ================= FOTO ================= -->
 
-        <div class="photo-area">
-
-            <div class="photo-wrapper">
-
-                <div class="photo-ring"></div>
-
-                <div class="photo-container">
-
-                    <div
-                        class="photo-placeholder"
-                        id="photoPlaceholder"
-                    >
-                        <div class="icon">👤</div>
-                        <span>Mi foto</span>
-                    </div>
-
-                    <img
-                        id="profilePhoto"
-                        style="display:none;"
-                        alt="Foto de Juan José Damián Aguilar"
-                    >
-
-                </div>
+        <div class="photo-container">
+            <img id="profilePhoto" src="perfil.jpg" alt="Foto de Juan José Damián Aguilar"
+                style="width:100%; height:100%; object-fit:cover;">
+        </div>
 
 
-                <!-- BOTÓN PARA EDITAR FOTO -->
+        <!-- BOTÓN PARA EDITAR FOTO -->
 
-                <button
-                    class="photo-edit"
-                    id="photoEditButton"
-                    title="Editar foto"
-                    onclick="openPhotoEditor()"
-                >
-                    ⚙
-                </button>
+        <button class="photo-edit" id="photoEditButton" title="Editar foto" onclick="openPhotoEditor()">
+            ⚙
+        </button>
 
 
-                <!-- OPCIONES DE FOTO -->
+        <!-- OPCIONES DE FOTO -->
 
-                <div
-                    class="photo-controls"
-                    id="photoControls"
-                >
+        <div class="photo-controls" id="photoControls">
 
-                    <button onclick="selectPhoto()">
-                        📷 Cambiar / agregar foto
-                    </button>
+            <button onclick="selectPhoto()">
+                📷 Cambiar / agregar foto
+            </button>
 
-                    <button
-                        class="remove-photo"
-                        onclick="removePhoto()"
-                    >
-                        🗑️ Quitar foto
-                    </button>
+            <button class="remove-photo" onclick="removePhoto()">
+                🗑️ Quitar foto
+            </button>
 
-                    <button
-                        class="close-photo"
-                        onclick="closePhotoEditor()"
-                    >
-                        Cerrar
-                    </button>
+            <button class="close-photo" onclick="closePhotoEditor()">
+                Cerrar
+            </button>
 
-                    <input
-                        type="file"
-                        id="photoInput"
-                        accept="image/*"
-                        style="display:none;"
-                        onchange="changePhoto(event)"
-                    >
+            <input type="file" id="photoInput" accept="image/*" style="display:none;" onchange="changePhoto(event)">
 
-                </div>
+        </div>
 
-            </div>
+        </div>
 
         </div>
 
@@ -877,17 +839,11 @@
 
             <!-- CORREO -->
 
-            <div
-                class="contact-card"
-                onclick="showContact('email')"
-            >
+            <div class="contact-card" onclick="showContact('email')">
 
                 <h3>📧 Correo</h3>
 
-                <div
-                    class="contact-info"
-                    id="emailInfo"
-                >
+                <div class="contact-info" id="emailInfo">
                     Haz clic para mostrar
                 </div>
 
@@ -896,17 +852,11 @@
 
             <!-- GITHUB -->
 
-            <div
-                class="contact-card"
-                onclick="showContact('github')"
-            >
+            <div class="contact-card" onclick="showContact('github')">
 
                 <h3>💻 GitHub</h3>
 
-                <div
-                    class="contact-info"
-                    id="githubInfo"
-                >
+                <div class="contact-info" id="githubInfo">
                     Haz clic para mostrar
                 </div>
 
@@ -1183,4 +1133,5 @@
     </script>
 
 </body>
+
 </html>
