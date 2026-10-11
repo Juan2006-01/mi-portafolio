@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portafolio profesional de Juan José Damián Aguilar, estudiante de Ingeniería Informática.">
+    <meta name="description" content="Portafolio de Juan José Damián Aguilar, estudiante de Ingeniería Informática.">
     <title>Juan José Damián Aguilar | Portafolio</title>
 
     <style>
@@ -50,7 +48,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(8, 13, 25, 0.94);
+            background: rgba(8, 13, 25, 0.96);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
@@ -88,13 +86,13 @@
         /* INICIO */
 
         .hero {
-            min-height: 90vh;
+            min-height: 85vh;
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
-            gap: 60px;
-            padding-top: 65px;
-            padding-bottom: 65px;
+            gap: 55px;
+            padding-top: 70px;
+            padding-bottom: 70px;
         }
 
         .tag {
@@ -109,7 +107,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.3rem, 5vw, 4.2rem);
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
             line-height: 1.15;
             margin-bottom: 20px;
         }
@@ -166,7 +164,7 @@
             transform: translateY(-3px);
         }
 
-        /* FOTO DE PERFIL */
+        /* FOTO DE PERFIL CORREGIDA */
 
         .photo-area {
             display: flex;
@@ -177,56 +175,78 @@
 
         .photo-wrapper {
             position: relative;
-            width: 310px;
-            height: 310px;
+            width: 320px;
+            height: 320px;
             max-width: 75vw;
             max-height: 75vw;
-        }
-
-        .photo-ring {
-            position: absolute;
-            inset: -8px;
             border-radius: 50%;
-            background: linear-gradient(135deg,
-                    #2563eb,
-                    #00c6ff,
-                    #2563eb);
+            padding: 7px;
+
+            /* El degradado forma solamente el borde */
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #00c6ff,
+                #2563eb
+            );
+
             animation: rotate 6s linear infinite;
         }
 
+        /* El borde gira sin cubrir la fotografía */
         @keyframes rotate {
             from {
-                transform: rotate(0deg);
+                background: linear-gradient(
+                    0deg,
+                    #2563eb,
+                    #00c6ff,
+                    #2563eb
+                );
             }
 
             to {
-                transform: rotate(360deg);
+                background: linear-gradient(
+                    360deg,
+                    #2563eb,
+                    #00c6ff,
+                    #2563eb
+                );
             }
         }
 
-        .photo-container img {
+        .photo-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            display: block;
-            object-fit: contain;
-            object-position: center;
-            background: #0d1424;
+            border-radius: 50%;
+            overflow: hidden;
 
+            /* Fondo igual al de la página */
+            background: var(--background);
+
+            /* La foto queda por encima del borde */
+            z-index: 1;
         }
 
         .photo-container img {
+            display: block;
             width: 100%;
             height: 100%;
-            display: block;
-            object-fit: cover;
+
+            /* Mantiene toda la fotografía visible */
+            object-fit: contain;
             object-position: center;
+
+            /* Evita que aparezca un fondo rectangular */
+            background: transparent;
+            border-radius: 50%;
         }
 
         /* SECCIONES */
 
         section {
             padding: 90px 0;
-            scroll-margin-top: 75px;
+            scroll-margin-top: 80px;
         }
 
         .section-title {
@@ -245,6 +265,8 @@
             max-width: 700px;
             margin: 0 auto 45px;
         }
+
+        /* SOBRE MÍ */
 
         .about {
             background: var(--background-light);
@@ -370,7 +392,7 @@
             text-align: center;
         }
 
-        .contact-content>p {
+        .contact-content > p {
             color: var(--muted);
             margin-bottom: 30px;
         }
@@ -432,13 +454,21 @@
             color: var(--primary);
         }
 
-        /* RESPONSIVE */
+        /* DISEÑO ADAPTABLE */
 
         @media (max-width: 850px) {
             .hero {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 55px;
+                gap: 45px;
+            }
+
+            .photo-area {
+                grid-row: 1;
+            }
+
+            .hero-text {
+                grid-row: 2;
             }
 
             .hero p {
@@ -448,14 +478,6 @@
 
             .buttons {
                 justify-content: center;
-            }
-
-            .photo-area {
-                grid-row: 1;
-            }
-
-            .hero-text {
-                grid-row: 2;
             }
 
             .skills-grid {
@@ -483,12 +505,12 @@
 
             .hero {
                 min-height: auto;
-                padding-top: 55px;
+                padding-top: 50px;
             }
 
             .photo-wrapper {
-                width: 240px;
-                height: 240px;
+                width: 250px;
+                height: 250px;
             }
 
             .hero h1 {
@@ -516,13 +538,12 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-
             *,
             *::before,
             *::after {
                 scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
+                animation: none !important;
+                transition: none !important;
             }
         }
     </style>
@@ -551,9 +572,7 @@
         <section class="hero container" id="inicio">
 
             <div class="hero-text">
-                <div class="tag">
-                    DESARROLLADOR DE SOFTWARE
-                </div>
+                <div class="tag">DESARROLLADOR DE SOFTWARE</div>
 
                 <h1>
                     Hola, soy <span>Juan José</span>
@@ -563,10 +582,10 @@
 
                 <p>
                     Soy Juan José Damián Aguilar, desarrollador de software
-                    interesado en el desarrollo de aplicaciones,
-                    las bases de datos, las redes y la automatización.
-                    Me gusta aprender nuevas tecnologías y desarrollar
-                    proyectos que permitan resolver problemas de la vida real.
+                    interesado en el desarrollo de aplicaciones, las bases
+                    de datos, las redes y la automatización. Me gusta aprender
+                    nuevas tecnologías y desarrollar proyectos que permitan
+                    resolver problemas de la vida real.
                 </p>
 
                 <div class="buttons">
@@ -580,13 +599,14 @@
                 </div>
             </div>
 
-            <!-- FOTO: cambia foto.jpg por el nombre de tu imagen -->
+            <!-- FOTO DE PERFIL -->
             <div class="photo-area">
                 <div class="photo-wrapper">
-                    <div class="photo-ring"></div>
-
                     <div class="photo-container">
-                        <img src="perfil.jpeg" alt="Foto de Juan José Damián Aguilar" id="profilePhoto">
+                        <img
+                            src="perfil.jpeg"
+                            alt="Foto de Juan José Damián Aguilar"
+                        >
                     </div>
                 </div>
             </div>
@@ -607,10 +627,10 @@
 
                 <div class="about-content">
                     <p>
-                        Mi nombre es Juan José Damián Aguilar soy
-                        desarrollador de software. He desarrollado conocimientos relacionados con la
-                        programación, las bases de datos, los sistemas
-                        operativos y las redes de computadoras.
+                        Mi nombre es Juan José Damián Aguilar, desarrollador.
+                        Durante mi formación he desarrollado conocimientos r
+                        elacionados con la programación, las bases de datos, 
+                        los sistemas operativos y las redes de computadoras.
                     </p>
 
                     <p>
@@ -643,8 +663,8 @@
                 </h2>
 
                 <p class="section-description">
-                    Algunas de las tecnologías y herramientas que conozco
-                    y utilizo en mis proyectos.
+                    Tecnologías y herramientas que conozco y utilizo
+                    en mis proyectos.
                 </p>
 
                 <div class="skills-grid">
@@ -652,13 +672,13 @@
                     <article class="skill-card">
                         <div class="skill-icon">💻</div>
                         <h3>HTML y CSS</h3>
-                        <p>Estructura y diseño de páginas web.</p>
+                        <p>Estructura y diseño web.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">⚡</div>
                         <h3>JavaScript</h3>
-                        <p>Interactividad y funcionalidades web.</p>
+                        <p>Interactividad en páginas web.</p>
                     </article>
 
                     <article class="skill-card">
@@ -676,49 +696,49 @@
                     <article class="skill-card">
                         <div class="skill-icon">🗄️</div>
                         <h3>SQL</h3>
-                        <p>Consultas y manejo de bases de datos.</p>
+                        <p>Manejo de bases de datos.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">🐧</div>
                         <h3>Linux</h3>
-                        <p>Uso y administración de sistemas operativos.</p>
+                        <p>Sistemas operativos.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">🐳</div>
                         <h3>Docker</h3>
-                        <p>Contenedores y despliegue de aplicaciones.</p>
+                        <p>Contenedores y despliegue.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">🔌</div>
                         <h3>Arduino y PIC</h3>
-                        <p>Microcontroladores y automatización.</p>
+                        <p>Microcontroladores.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">⚙️</div>
                         <h3>C++</h3>
-                        <p>Lógica y desarrollo de programas.</p>
+                        <p>Desarrollo de programas.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">🌐</div>
                         <h3>Redes</h3>
-                        <p>Fundamentos de redes y comunicación.</p>
+                        <p>Comunicación entre dispositivos.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">🔧</div>
                         <h3>Git</h3>
-                        <p>Control de versiones de proyectos.</p>
+                        <p>Control de versiones.</p>
                     </article>
 
                     <article class="skill-card">
                         <div class="skill-icon">📱</div>
                         <h3>Aplicaciones</h3>
-                        <p>Diseño y desarrollo de soluciones informáticas.</p>
+                        <p>Desarrollo de soluciones informáticas.</p>
                     </article>
 
                 </div>
@@ -742,19 +762,17 @@
 
                     <article class="project-card">
                         <div class="project-number">PROYECTO 01</div>
-
                         <h3>Sistema hidropónico automatizado con PICs</h3>
 
                         <p>
                             Proyecto enfocado en la automatización de un
                             sistema hidropónico mediante microcontroladores
-                            PIC. Su propósito es integrar electrónica y
-                            programación para apoyar el control de un sistema
-                            de cultivo.
+                            PIC, integrando electrónica y programación
+                            para el control de un sistema de cultivo.
                         </p>
 
                         <div class="project-tags">
-                            <span>Microcontroladores PIC</span>
+                            <span>PIC</span>
                             <span>Electrónica</span>
                             <span>Automatización</span>
                         </div>
@@ -762,14 +780,12 @@
 
                     <article class="project-card">
                         <div class="project-number">PROYECTO 02</div>
-
                         <h3>Desarrollo web</h3>
 
                         <p>
-                            Creación de páginas web con HTML, CSS y JavaScript,
-                            aplicando diseño adaptable, organización del
-                            contenido y elementos interactivos para mejorar
-                            la experiencia de los usuarios.
+                            Creación de páginas web utilizando HTML, CSS
+                            y JavaScript, con diseño adaptable y elementos
+                            interactivos.
                         </p>
 
                         <div class="project-tags">
@@ -781,13 +797,12 @@
 
                     <article class="project-card">
                         <div class="project-number">PROYECTO 03</div>
-
                         <h3>Sistemas de bases de datos</h3>
 
                         <p>
-                            Diseño de modelos entidad-relación, transformación
-                            a modelos relacionales y elaboración de consultas
-                            SQL para organizar y administrar información.
+                            Diseño de modelos entidad-relación, modelos
+                            relacionales y consultas SQL para organizar
+                            y administrar información.
                         </p>
 
                         <div class="project-tags">
@@ -799,11 +814,10 @@
 
                     <article class="project-card">
                         <div class="project-number">PROYECTO 04</div>
-
                         <h3>Automatización con electrónica</h3>
 
                         <p>
-                            Prácticas académicas que combinan programación,
+                            Prácticas académicas que integran programación,
                             sensores, actuadores y microcontroladores para
                             desarrollar sistemas automatizados.
                         </p>
@@ -828,22 +842,23 @@
                 </h2>
 
                 <p class="section-description">
-                    Si quieres conocer más sobre mis proyectos o comunicarte
-                    conmigo, puedes utilizar los siguientes medios.
+                    Puedes comunicarte conmigo por correo electrónico
+                    o visitar mi perfil de GitHub.
                 </p>
 
                 <div class="contact-content">
-
                     <div class="contact-options">
 
                         <article class="contact-card">
                             <h3>📧 Correo electrónico</h3>
 
-                            <p id="emailInfo">
-                                Contacto por correo
-                            </p>
+                            <p id="emailInfo">Contacto por correo</p>
 
-                            <button class="contact-button" type="button" onclick="showContact('email')">
+                            <button
+                                class="contact-button"
+                                type="button"
+                                onclick="showContact('email')"
+                            >
                                 Mostrar correo
                             </button>
                         </article>
@@ -851,11 +866,13 @@
                         <article class="contact-card">
                             <h3>💻 GitHub</h3>
 
-                            <p id="githubInfo">
-                                Revisa mi perfil de GitHub
-                            </p>
+                            <p id="githubInfo">Mi perfil de GitHub</p>
 
-                            <button class="contact-button" type="button" onclick="showContact('github')">
+                            <button
+                                class="contact-button"
+                                type="button"
+                                onclick="showContact('github')"
+                            >
                                 Ver perfil
                             </button>
                         </article>
@@ -880,29 +897,25 @@
     </footer>
 
     <script>
-        // Mostrar el año actual automáticamente
         document.getElementById("currentYear").textContent =
             new Date().getFullYear();
 
-        // Mostrar los datos de contacto
         function showContact(type) {
             if (type === "email") {
+                const email = "informatica_24887003@cintalapa.tecnm.mx";
+
                 document.getElementById("emailInfo").innerHTML =
-                    '<a href="mailto:informatica_24887003@cintalapa.tecnm.mx">' +
-                    'informatica_24887003@cintalapa.tecnm.mx' +
-                    '</a>';
+                    '<a href="mailto:' + email + '">' + email + '</a>';
             }
 
             if (type === "github") {
                 document.getElementById("githubInfo").innerHTML =
                     '<a href="https://github.com/Juan2006-01" ' +
                     'target="_blank" rel="noopener noreferrer">' +
-                    'github.com/Juan2006-01' +
-                    '</a>';
+                    'github.com/Juan2006-01</a>';
             }
         }
     </script>
 
 </body>
-
 </html>
