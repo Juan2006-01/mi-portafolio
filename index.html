@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio profesional de Juan José Damián Aguilar, estudiante de Ingeniería Informática.">
+    <meta name="description"
+        content="Portafolio profesional de Juan José Damián Aguilar, estudiante de Ingeniería Informática.">
     <title>Juan José Damián Aguilar | Portafolio</title>
 
     <style>
@@ -185,12 +187,10 @@
             position: absolute;
             inset: -8px;
             border-radius: 50%;
-            background: linear-gradient(
-                135deg,
-                #2563eb,
-                #00c6ff,
-                #2563eb
-            );
+            background: linear-gradient(135deg,
+                    #2563eb,
+                    #00c6ff,
+                    #2563eb);
             animation: rotate 6s linear infinite;
         }
 
@@ -204,13 +204,14 @@
             }
         }
 
-        .photo-container {
-            position: absolute;
-            inset: 5px;
-            border-radius: 50%;
-            overflow: hidden;
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            object-position: center;
             background: #0d1424;
-            border: 5px solid #0d1424;
+
         }
 
         .photo-container img {
@@ -369,7 +370,7 @@
             text-align: center;
         }
 
-        .contact-content > p {
+        .contact-content>p {
             color: var(--muted);
             margin-bottom: 30px;
         }
@@ -515,6 +516,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -584,11 +586,7 @@
                     <div class="photo-ring"></div>
 
                     <div class="photo-container">
-                        <img
-                            src="perfil.jpeg"
-                            alt="Foto de Juan José Damián Aguilar"
-                            id="profilePhoto"
-                        >
+                        <img src="perfil.jpeg" alt="Foto de Juan José Damián Aguilar" id="profilePhoto">
                     </div>
                 </div>
             </div>
@@ -845,11 +843,7 @@
                                 Contacto por correo
                             </p>
 
-                            <button
-                                class="contact-button"
-                                type="button"
-                                onclick="showContact('email')"
-                            >
+                            <button class="contact-button" type="button" onclick="showContact('email')">
                                 Mostrar correo
                             </button>
                         </article>
@@ -861,11 +855,7 @@
                                 Revisa mi perfil de GitHub
                             </p>
 
-                            <button
-                                class="contact-button"
-                                type="button"
-                                onclick="showContact('github')"
-                            >
+                            <button class="contact-button" type="button" onclick="showContact('github')">
                                 Ver perfil
                             </button>
                         </article>
@@ -914,4 +904,5 @@
     </script>
 
 </body>
+
 </html>
