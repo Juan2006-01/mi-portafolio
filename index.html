@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Juan Damián | Ingeniería Informática</title>
+    <title>Juan José Damián Aguilar | Ingeniería Informática</title>
 
     <style>
         * {
@@ -17,8 +16,8 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background:
-                radial-gradient(circle at 20% 20%, rgba(0, 119, 255, 0.12), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(0, 200, 255, 0.08), transparent 30%),
+                radial-gradient(circle at 20% 20%, rgba(0,119,255,.12), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(0,200,255,.08), transparent 30%),
                 #070b14;
             color: #fff;
             overflow-x: hidden;
@@ -29,8 +28,6 @@
             color: inherit;
         }
 
-        /* ================= NAVBAR ================= */
-
         nav {
             position: fixed;
             top: 0;
@@ -40,9 +37,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 7%;
-            background: rgba(7, 11, 20, 0.75);
+            background: rgba(7,11,20,.85);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,.08);
             z-index: 1000;
         }
 
@@ -64,14 +61,12 @@
 
         nav ul li a {
             color: #cbd5e1;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         nav ul li a:hover {
             color: #4da6ff;
         }
-
-        /* ================= HERO ================= */
 
         .hero {
             min-height: 100vh;
@@ -128,20 +123,20 @@
             background: #2563eb;
             color: white;
             font-weight: bold;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(37,99,235,0.35);
+            box-shadow: 0 10px 30px rgba(37,99,235,.35);
         }
 
         .btn.secondary {
             background: transparent;
-            border-color: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,.15);
         }
 
-        /* ================= FOTO ================= */
+        /* FOTO DE PERFIL */
 
         .photo-area {
             display: flex;
@@ -160,18 +155,13 @@
             position: absolute;
             inset: -8px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #2563eb, #00c6ff, #2563eb);
+            background: linear-gradient(135deg,#2563eb,#00c6ff,#2563eb);
             animation: rotate 6s linear infinite;
         }
 
         @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .photo-container {
@@ -207,8 +197,6 @@
             margin-bottom: 15px;
         }
 
-        /* BOTÓN DE FOTO */
-
         .photo-edit {
             position: absolute;
             right: 5px;
@@ -225,16 +213,14 @@
             cursor: pointer;
             font-size: 21px;
             z-index: 10;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,.4);
+            transition: .3s;
         }
 
         .photo-edit:hover {
             transform: scale(1.1);
             background: #00a8ff;
         }
-
-        /* CONTROLES DE FOTO */
 
         .photo-controls {
             position: absolute;
@@ -243,14 +229,14 @@
             bottom: -125px;
             width: 270px;
             padding: 15px;
-            background: rgba(12,18,31,0.97);
-            border: 1px solid rgba(77,166,255,0.3);
+            background: rgba(12,18,31,.97);
+            border: 1px solid rgba(77,166,255,.3);
             border-radius: 15px;
             display: none;
             flex-direction: column;
             gap: 10px;
             z-index: 20;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0,0,0,.5);
         }
 
         .photo-controls.active {
@@ -268,7 +254,7 @@
         }
 
         .photo-controls button:hover {
-            opacity: 0.85;
+            opacity: .85;
         }
 
         .photo-controls .remove-photo {
@@ -279,7 +265,7 @@
             background: #334155;
         }
 
-        /* ================= SECCIONES ================= */
+        /* SECCIONES */
 
         section {
             padding: 100px 9%;
@@ -300,8 +286,6 @@
             margin-top: 10px;
         }
 
-        /* ================= SOBRE MÍ ================= */
-
         .about {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -309,8 +293,8 @@
         }
 
         .glass {
-            background: rgba(255,255,255,0.035);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.08);
             border-radius: 20px;
             padding: 35px;
             backdrop-filter: blur(15px);
@@ -326,21 +310,21 @@
             line-height: 1.8;
         }
 
-        /* ================= HABILIDADES ================= */
+        /* HABILIDADES */
 
         .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
             gap: 18px;
         }
 
         .skill {
             padding: 25px;
             border-radius: 16px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
             text-align: center;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .skill:hover {
@@ -358,26 +342,26 @@
             color: #cbd5e1;
         }
 
-        /* ================= PROYECTOS ================= */
+        /* PROYECTOS */
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
             gap: 25px;
         }
 
         .project {
             padding: 28px;
-            background: rgba(255,255,255,0.035);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.08);
             border-radius: 18px;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .project:hover {
             transform: translateY(-8px);
             border-color: #2563eb;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,.25);
         }
 
         .project-icon {
@@ -398,28 +382,28 @@
             display: inline-block;
             margin-top: 20px;
             padding: 6px 10px;
-            background: rgba(37,99,235,0.15);
-            border: 1px solid rgba(37,99,235,0.3);
+            background: rgba(37,99,235,.15);
+            border: 1px solid rgba(37,99,235,.3);
             border-radius: 8px;
             color: #60a5fa;
             font-size: 12px;
         }
 
-        /* ================= CONTACTO ================= */
+        /* CONTACTO */
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
             gap: 20px;
         }
 
         .contact-card {
             padding: 25px;
             border-radius: 17px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
             cursor: pointer;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .contact-card:hover {
@@ -446,19 +430,14 @@
             text-decoration: underline;
         }
 
-        /* ================= FOOTER ================= */
-
         footer {
             text-align: center;
             padding: 35px;
             color: #64748b;
-            border-top: 1px solid rgba(255,255,255,0.07);
+            border-top: 1px solid rgba(255,255,255,.07);
         }
 
-        /* ================= RESPONSIVE ================= */
-
         @media (max-width: 850px) {
-
             nav {
                 padding: 0 5%;
             }
@@ -493,7 +472,6 @@
         }
 
         @media (max-width: 500px) {
-
             nav ul {
                 display: none;
             }
@@ -511,13 +489,8 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
     <nav>
-
-        <div class="logo">
-            JJ<span>.DEV</span>
-        </div>
+        <div class="logo">JJ<span>.DEV</span></div>
 
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -526,26 +499,21 @@
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
-
     </nav>
 
-
-    <!-- ================= INICIO ================= -->
+    <!-- INICIO -->
 
     <section class="hero" id="inicio">
 
         <div class="hero-text">
-
             <small>ESTUDIANTE DE INGENIERÍA INFORMÁTICA</small>
 
             <h1>
-                Juan<br>
-                <span>Damián</span>
+                Juan José<br>
+                <span>Damián Aguilar</span>
             </h1>
 
-            <h2>
-                Desarrollo • Tecnología • Innovación
-            </h2>
+            <h2>Desarrollo • Tecnología • Innovación</h2>
 
             <p>
                 Soy estudiante de Ingeniería Informática interesado en el
@@ -555,34 +523,21 @@
             </p>
 
             <div class="buttons">
-
-                <a href="#proyectos" class="btn">
-                    Ver proyectos
-                </a>
-
-                <a href="#contacto" class="btn secondary">
-                    Contactarme
-                </a>
-
+                <a href="#proyectos" class="btn">Ver proyectos</a>
+                <a href="#contacto" class="btn secondary">Contactarme</a>
             </div>
-
         </div>
 
-
-        <!-- ================= FOTO ================= -->
+        <!-- FOTO -->
 
         <div class="photo-area">
-
             <div class="photo-wrapper">
 
                 <div class="photo-ring"></div>
 
                 <div class="photo-container">
 
-                    <div
-                        class="photo-placeholder"
-                        id="photoPlaceholder"
-                    >
+                    <div class="photo-placeholder" id="photoPlaceholder">
                         <div class="icon">👤</div>
                         <span>Mi foto</span>
                     </div>
@@ -592,44 +547,25 @@
                         style="display:none;"
                         alt="Foto de Juan José Damián Aguilar"
                     >
-
                 </div>
-
-
-                <!-- BOTÓN PARA EDITAR FOTO -->
 
                 <button
                     class="photo-edit"
-                    id="photoEditButton"
                     title="Editar foto"
                     onclick="openPhotoEditor()"
-                >
-                    ⚙
-                </button>
+                >⚙</button>
 
-
-                <!-- OPCIONES DE FOTO -->
-
-                <div
-                    class="photo-controls"
-                    id="photoControls"
-                >
+                <div class="photo-controls" id="photoControls">
 
                     <button onclick="selectPhoto()">
                         📷 Cambiar / agregar foto
                     </button>
 
-                    <button
-                        class="remove-photo"
-                        onclick="removePhoto()"
-                    >
+                    <button class="remove-photo" onclick="removePhoto()">
                         🗑️ Quitar foto
                     </button>
 
-                    <button
-                        class="close-photo"
-                        onclick="closePhotoEditor()"
-                    >
+                    <button class="close-photo" onclick="closePhotoEditor()">
                         Cerrar
                     </button>
 
@@ -642,544 +578,288 @@
                     >
 
                 </div>
-
             </div>
-
         </div>
 
     </section>
 
-
-    <!-- ================= SOBRE MÍ ================= -->
+    <!-- SOBRE MÍ -->
 
     <section id="sobre-mi">
 
         <div class="section-title">
-
             <small>SOBRE MÍ</small>
-
             <h2>Conociendo mi perfil</h2>
-
         </div>
-
 
         <div class="about">
 
             <div class="glass">
-
                 <h3>¿Quién soy?</h3>
-
                 <p>
                     Soy Juan José Damián Aguilar, estudiante de Ingeniería
                     Informática. Mi formación está enfocada en el desarrollo
                     de software, bases de datos, redes y tecnologías
                     relacionadas con la informática.
                 </p>
-
             </div>
 
-
             <div class="glass">
-
                 <h3>¿Qué me interesa?</h3>
-
                 <p>
                     Me interesa el desarrollo web, las bases de datos,
                     aplicaciones, redes, automatización y la creación de
                     proyectos que combinen hardware y software.
                 </p>
-
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- ================= HABILIDADES ================= -->
+    <!-- HABILIDADES -->
 
     <section id="habilidades">
 
         <div class="section-title">
-
             <small>TECNOLOGÍAS</small>
-
             <h2>Mis habilidades</h2>
-
         </div>
 
-
         <div class="skills">
-
-            <div class="skill">
-                <span>🐍</span>
-                <p>Python</p>
-            </div>
-
-            <div class="skill">
-                <span>🟨</span>
-                <p>JavaScript</p>
-            </div>
-
-            <div class="skill">
-                <span>☕</span>
-                <p>Java</p>
-            </div>
-
-            <div class="skill">
-                <span>⚙️</span>
-                <p>C++</p>
-            </div>
-
-            <div class="skill">
-                <span>🗄️</span>
-                <p>SQL</p>
-            </div>
-
-            <div class="skill">
-                <span>🐳</span>
-                <p>Docker</p>
-            </div>
-
-            <div class="skill">
-                <span>🐧</span>
-                <p>Linux</p>
-            </div>
-
-            <div class="skill">
-                <span>🤖</span>
-                <p>Arduino</p>
-            </div>
-
-            <div class="skill">
-                <span>🌐</span>
-                <p>HTML / CSS</p>
-            </div>
-
-            <div class="skill">
-                <span>🔧</span>
-                <p>Git</p>
-            </div>
-
+            <div class="skill"><span>🐍</span><p>Python</p></div>
+            <div class="skill"><span>🟨</span><p>JavaScript</p></div>
+            <div class="skill"><span>☕</span><p>Java</p></div>
+            <div class="skill"><span>⚙️</span><p>C++</p></div>
+            <div class="skill"><span>🗄️</span><p>SQL</p></div>
+            <div class="skill"><span>🐳</span><p>Docker</p></div>
+            <div class="skill"><span>🐧</span><p>Linux</p></div>
+            <div class="skill"><span>🤖</span><p>Arduino</p></div>
+            <div class="skill"><span>🌐</span><p>HTML / CSS</p></div>
+            <div class="skill"><span>🔧</span><p>Git</p></div>
         </div>
 
     </section>
 
-
-    <!-- ================= PROYECTOS ================= -->
+    <!-- PROYECTOS -->
 
     <section id="proyectos">
 
         <div class="section-title">
-
             <small>TRABAJOS</small>
-
             <h2>Mis proyectos</h2>
-
         </div>
-
 
         <div class="projects">
 
             <div class="project">
-
                 <div class="project-icon">💧</div>
-
                 <h3>Sistema hidropónico automatizado</h3>
-
                 <p>
                     Proyecto basado en PICs para automatizar y controlar
                     diferentes procesos de un sistema hidropónico mediante
                     sensores y componentes electrónicos.
                 </p>
-
-                <span class="tag">
-                    PIC • Automatización
-                </span>
-
+                <span class="tag">PIC • Automatización</span>
             </div>
 
-
             <div class="project">
-
                 <div class="project-icon">🗄️</div>
-
                 <h3>Sistemas de bases de datos</h3>
-
                 <p>
                     Desarrollo de proyectos académicos relacionados con
                     modelos entidad-relación, bases de datos SQL y
                     administración de información.
                 </p>
-
-                <span class="tag">
-                    SQL • Bases de datos
-                </span>
-
+                <span class="tag">SQL • Bases de datos</span>
             </div>
 
-
             <div class="project">
-
                 <div class="project-icon">💻</div>
-
                 <h3>Aplicaciones y sistemas</h3>
-
                 <p>
                     Creación de aplicaciones utilizando diferentes lenguajes
                     de programación para resolver problemas y automatizar
                     procesos.
                 </p>
-
-                <span class="tag">
-                    Java • Python • C++
-                </span>
-
+                <span class="tag">Java • Python • C++</span>
             </div>
 
-
             <div class="project">
-
                 <div class="project-icon">🌐</div>
-
                 <h3>Desarrollo web</h3>
-
                 <p>
                     Diseño y desarrollo de páginas web utilizando HTML, CSS y
                     JavaScript, buscando interfaces modernas y funcionales.
                 </p>
-
-                <span class="tag">
-                    HTML • CSS • JavaScript
-                </span>
-
+                <span class="tag">HTML • CSS • JavaScript</span>
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- ================= CONTACTO ================= -->
+    <!-- CONTACTO -->
 
     <section id="contacto">
 
         <div class="section-title">
-
             <small>CONTACTO</small>
-
             <h2>Hablemos</h2>
-
         </div>
-
 
         <div class="contact-grid">
 
-            <!-- CORREO -->
-
-            <div
-                class="contact-card"
-                onclick="showContact('email')"
-            >
-
+            <div class="contact-card" onclick="showContact('email')">
                 <h3>📧 Correo</h3>
-
-                <div
-                    class="contact-info"
-                    id="emailInfo"
-                >
+                <div class="contact-info" id="emailInfo">
                     Haz clic para mostrar
                 </div>
-
             </div>
 
-
-            <!-- GITHUB -->
-
-            <div
-                class="contact-card"
-                onclick="showContact('github')"
-            >
-
+            <div class="contact-card" onclick="showContact('github')">
                 <h3>💻 GitHub</h3>
-
-                <div
-                    class="contact-info"
-                    id="githubInfo"
-                >
+                <div class="contact-info" id="githubInfo">
                     Haz clic para mostrar
                 </div>
-
             </div>
-
-
-            <!-- UBICACIÓN -->
 
             <div class="contact-card">
-
                 <h3>📍 Ubicación</h3>
-
-                <div class="contact-info">
-                    Chiapas, México
-                </div>
-
+                <div class="contact-info">Chiapas, México</div>
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- ================= FOOTER ================= -->
-
     <footer>
-
         © 2026 Juan José Damián Aguilar · Ingeniería Informática
-
     </footer>
 
-
-    <!-- ================= JAVASCRIPT ================= -->
-
     <script>
+        /* CONTRASEÑA PARA EDITAR LA FOTO */
+        const PHOTO_PASSWORD = "JD2026";
 
-        /* =================================================
-           CONTRASEÑA PARA EDITAR LA FOTO
-           ================================================= */
-
-        const PHOTO_PASSWORD = "JO$3010606";
-
-
-        /* =================================================
-           CARGAR FOTO GUARDADA
-           ================================================= */
-
+        /* CARGAR FOTO GUARDADA */
         window.addEventListener("DOMContentLoaded", function () {
-
-            const savedPhoto =
-                localStorage.getItem("juanJoseProfilePhoto");
+            const savedPhoto = localStorage.getItem("juanJoseProfilePhoto");
 
             if (savedPhoto) {
-
                 displayPhoto(savedPhoto);
-
             }
-
         });
 
-
-        /* =================================================
-           ABRIR EDITOR DE FOTO
-           ================================================= */
-
+        /* ABRIR EDITOR */
         function openPhotoEditor() {
-
             const password = prompt(
-                "🔐 Introduce la contraseña para editar la foto:"
+                "Introduce la contraseña para editar la foto:"
             );
 
-
-            if (password === null) {
-                return;
-            }
-
+            if (password === null) return;
 
             if (password !== PHOTO_PASSWORD) {
-
-                alert("❌ Contraseña incorrecta.");
-
+                alert("Contraseña incorrecta.");
                 return;
             }
 
-
-            document
-                .getElementById("photoControls")
+            document.getElementById("photoControls")
                 .classList.add("active");
-
         }
 
-
-        /* =================================================
-           CERRAR EDITOR
-           ================================================= */
-
+        /* CERRAR EDITOR */
         function closePhotoEditor() {
-
-            document
-                .getElementById("photoControls")
+            document.getElementById("photoControls")
                 .classList.remove("active");
-
         }
 
-
-        /* =================================================
-           SELECCIONAR FOTO
-           ================================================= */
-
+        /* SELECCIONAR FOTO */
         function selectPhoto() {
-
-            document
-                .getElementById("photoInput")
-                .click();
-
+            document.getElementById("photoInput").click();
         }
 
-
-        /* =================================================
-           CAMBIAR / AGREGAR FOTO
-           ================================================= */
-
+        /* AGREGAR O CAMBIAR FOTO */
         function changePhoto(event) {
-
             const file = event.target.files[0];
 
-
-            if (!file) {
-                return;
-            }
-
+            if (!file) return;
 
             if (!file.type.startsWith("image/")) {
-
-                alert("❌ Selecciona una imagen válida.");
-
+                alert("Selecciona una imagen válida.");
+                event.target.value = "";
                 return;
             }
-
 
             const reader = new FileReader();
 
-
             reader.onload = function (e) {
-
                 const imageData = e.target.result;
 
+                try {
+                    localStorage.setItem(
+                        "juanJoseProfilePhoto",
+                        imageData
+                    );
 
-                localStorage.setItem(
-                    "juanJoseProfilePhoto",
-                    imageData
-                );
-
-
-                displayPhoto(imageData);
-
-
-                alert(
-                    "✅ Foto actualizada correctamente."
-                );
-
+                    displayPhoto(imageData);
+                    alert("Foto actualizada correctamente.");
+                } catch (error) {
+                    alert("La imagen es demasiado grande. Elige una imagen más pequeña.");
+                }
             };
 
-
             reader.readAsDataURL(file);
-
         }
 
-
-        /* =================================================
-           MOSTRAR FOTO
-           ================================================= */
-
+        /* MOSTRAR FOTO */
         function displayPhoto(imageData) {
-
-            const image =
-                document.getElementById("profilePhoto");
-
-            const placeholder =
-                document.getElementById("photoPlaceholder");
-
+            const image = document.getElementById("profilePhoto");
+            const placeholder = document.getElementById("photoPlaceholder");
 
             image.src = imageData;
-
             image.style.display = "block";
-
             placeholder.style.display = "none";
-
         }
 
-
-        /* =================================================
-           QUITAR FOTO
-           ================================================= */
-
+        /* QUITAR FOTO */
         function removePhoto() {
-
             const confirmation = confirm(
                 "¿Seguro que quieres quitar tu foto?"
             );
 
+            if (!confirmation) return;
 
-            if (!confirmation) {
-                return;
-            }
+            localStorage.removeItem("juanJoseProfilePhoto");
 
-
-            localStorage.removeItem(
-                "juanJoseProfilePhoto"
-            );
-
-
-            const image =
-                document.getElementById("profilePhoto");
-
-            const placeholder =
-                document.getElementById("photoPlaceholder");
-
+            const image = document.getElementById("profilePhoto");
+            const placeholder = document.getElementById("photoPlaceholder");
 
             image.src = "";
-
             image.style.display = "none";
-
             placeholder.style.display = "flex";
-
 
             document.getElementById("photoInput").value = "";
 
-
-            alert("🗑️ Foto eliminada.");
-
+            alert("Foto eliminada.");
         }
 
-
-        /* =================================================
-           MOSTRAR CONTACTO
-           ================================================= */
-
+        /* MOSTRAR CORREO Y GITHUB */
         function showContact(type) {
-
-            /* ---------- CORREO ---------- */
-
             if (type === "email") {
-
-                const element =
-                    document.getElementById("emailInfo");
-
+                const element = document.getElementById("emailInfo");
 
                 element.innerHTML =
                     '<a href="mailto:informatica_24887003@cintalapa.tecnm.mx">' +
                     'informatica_24887003@cintalapa.tecnm.mx' +
                     '</a>';
-
             }
 
-
-            /* ---------- GITHUB ---------- */
-
             if (type === "github") {
-
-                const element =
-                    document.getElementById("githubInfo");
-
+                const element = document.getElementById("githubInfo");
 
                 element.innerHTML =
                     '<a href="https://github.com/Juan2006-01" target="_blank" rel="noopener noreferrer">' +
                     'github.com/Juan2006-01' +
                     '</a>';
-
             }
-
         }
-
     </script>
 
 </body>
